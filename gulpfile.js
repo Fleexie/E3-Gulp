@@ -7,7 +7,6 @@ const cssnano = require("cssnano");
 const terser = require("gulp-terser");
 const rename = require("gulp-rename");
 const imageResize = require("gulp-image-resize");
-const imgmin = require("gulp-imagemin");
 
 function styles() {
 
@@ -34,7 +33,7 @@ function js() {
 
 function imageResizes() {
     return(
-        gulp.src(["images/*.png", "images/*.jpg"])
+        gulp.src(["images/*", "!images/*.min.*"])
             .pipe(imageResize({
                 width : 100,
                 height : 100,
@@ -49,17 +48,6 @@ function imageResizes() {
     );
 }
 
-function imagemin() {
-    return(
-        gulp.src(["images/*", "!images/*.min"])
-            .pipe(imgmin())
-            .pipe(rename({
-                suffix: ".min"
-            }))
-            .pipe(gulp.dest("dist/images"))
-    );
-}
-
 function watch(){
     gulp.watch("css/*.scss", styles);
     gulp.watch(["js/*.js", "!js/*.min.js"], js)
@@ -70,6 +58,5 @@ const build = gulp.parallel(styles, js);
 exports.styles = styles;
 exports.js = js;
 exports.imageResizes = imageResizes;
-exports.imagemin = imagemin;
 exports.watch = watch;
 exports.build = build;
