@@ -1,5 +1,6 @@
 const gulp = require("gulp");
 const sass = require("gulp-sass");
+const browserSync = require('browser-sync');
 const sourcemaps = require("gulp-sourcemaps");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
@@ -17,6 +18,7 @@ function styles() {
             .pipe(postcss([autoprefixer(), cssnano()]))
             .pipe(sourcemaps.write("."))
             .pipe(gulp.dest("css"))
+            .pipe(browserSync.stream())
     );
     
 }
@@ -50,7 +52,14 @@ function imageResizes() {
 
 function watch(){
     gulp.watch("css/*.scss", styles);
-    gulp.watch(["js/*.js", "!js/*.min.js"], js)
+    gulp.watch(["js/*.js", "!js/*.min.js"], js);
+    gulp.watch("*.html").on("change", browserSync.reload);
+
+    browserSync.init({
+        server: {
+            baseDir: './'
+        }
+    });
 }
 
 const build = gulp.parallel(styles, js);
