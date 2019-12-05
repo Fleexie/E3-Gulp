@@ -69,3 +69,12 @@ exports.js = js;
 exports.imageResizes = imageResizes;
 exports.watch = watch;
 exports.build = build;
+
+const gulp = require('gulp');
+const size = require('gulp-size');
+
+gulp.task('default', () =>
+    gulp.src('fixture.js')
+        .pipe(size())
+        .pipe(gulp.dest('dist'))
+);
