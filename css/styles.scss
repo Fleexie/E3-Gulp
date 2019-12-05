@@ -1,4 +1,76 @@
 body{
-  margin: 0;
+  margin-top: 150px;
 }
 
+nav{
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  color: aliceblue;
+  background-color: rgba(7, 7, 7, 0.85);
+  .logo-nav{
+    margin-left: 5%;
+    background-color: black;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 80px;
+    width: 80px;
+    text-decoration: none;
+    &:after{
+      content: "SpiderWEB";
+      color: aliceblue;
+      margin-left: 100px;
+      font-size: 20px;
+      line-height: 80px;
+    }
+  }
+  .nav{
+    position: fixed;
+    top: 100px;
+    right: 0;
+    width: 100%;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0,0,0, .9);
+    a {
+      justify-content: center;
+      background-color: rgba(100, 100, 100, .5);
+      padding: 10px 0;
+      margin: 50px auto;
+      text-decoration: none;
+      color: aliceblue;
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-size: x-large;
+      &:hover{
+        background-color: rgba(150, 150, 150, .5);
+        font-size: large;
+      }
+      h3{
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+  .nav-btn{
+    display: flex;
+    flex-direction: column;
+    margin-right: 10%;
+    .line1, .line2, .line3{
+      width: 30px;
+      height: 3px;
+      margin: 2px 0;
+      background-color: aliceblue;
+    }
+  }
+}
