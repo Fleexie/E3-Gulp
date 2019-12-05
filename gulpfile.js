@@ -64,17 +64,24 @@ function watch(){
 
 const build = gulp.parallel(styles, js);
 
+const size = require('gulp-size');
+const notify = require('gulp-notify');
+
+gulp.task('default', () => {
+    const s = size();
+
+    return gulp.src(['*.html','.css/*.scss'])
+        .pipe(s)
+        .pipe(gulp.dest('dist'))
+        .pipe(notify({
+            onLast: true,
+            message: () => `Total size ${s.prettySize}`
+        }));
+});
+
+
 exports.styles = styles;
 exports.js = js;
 exports.imageResizes = imageResizes;
 exports.watch = watch;
 exports.build = build;
-
-const gulp = require('gulp');
-const size = require('gulp-size');
-
-gulp.task('default', () =>
-    gulp.src('fixture.js')
-        .pipe(size())
-        .pipe(gulp.dest('dist'))
-);

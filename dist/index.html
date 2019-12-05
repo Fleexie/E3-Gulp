@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<!-- Fortæller det er html5 -->
+<!-- html starter og slutter hele dokumentet / lang=da: Fortæller siden er på dansk -->
+<html lang="da">
+
+<!-- I <head> har man opsætning - alt det som man ikke ser som selve indholdet -->
+<head>
+
+    <!-- Sætter tegnsætning til utf-8 som bl.a. tillader danske bogstaver -->
+    <meta charset="utf-8">
+
+    <!-- Titel som ses oppe i browserens tab mv. -->
+    <title>Sigende titel</title>
+
+    <!-- Metatags der fortæller at søgemaskiner er velkomne, hvem der udgiver siden og copyright information -->
+    <meta name="robots" content="All">
+    <meta name="author" content="Udgiver">
+    <meta name="copyright" content="Information om copyright">
+
+    <!-- Sikrer man kan benytte CSS ved at tilkoble en CSS fil -->
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+
+    <!-- Sikrer den vises korrekt på mobil, tablet mv. ved at tage ift. skærmstørrelse -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+<h1><a href="https://www.npmjs.com/package/@sapics/gulp-image-resize">Gulp-Image-Resize</a></h1>
+<p>
+    <h3>Dependencies udover gulp</h3>
+    <ul>
+        <li><a href="http://www.imagemagick.org/script/binary-releases.php">imageMagick</a> / <a href="http://www.graphicsmagick.org/">graphicsMagick</a> </li>
+    </ul>
+</p>
+<h3>Funktion og situationer det kan bruges</h3>
+<p>
+    Denne feature laver nye billeder ud af de eksiterende. Man kan selv vælge størrelse på de filer der skal komme ud af det.
+    Som det ses nedenunder så er der et relativt stort billede der bliver lavet om til et 100px x 100px billede.
+
+    Det kan bruges til at lave nogle hurtige justeringer i størrelserne på de billeder der skal bruges på siden.
+    Hvis der for eksempel er et banner til web versionen som man gerne vil bruge til mobil, så er det en hurtig løsning at få denne feature til at skalere billedet.
+    Billede størrelser er vigtige for pagespeed og mobilvenlighed. 
+</p>
+
+<img src="images/Saturn.jpg" alt="Img large">
+<div class="smallerimg-c">
+<img src="images/Saturn.min.jpg" alt="Img smaller" class="smallerimg">
+</div>
+</body>
+</html>
